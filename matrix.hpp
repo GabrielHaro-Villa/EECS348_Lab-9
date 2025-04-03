@@ -13,8 +13,8 @@ class Matrix {
     Matrix(std::size_t N);  // Constructor that initializes an NxN matrix
     Matrix(std::vector<std::vector<T>> nums);  // Constructor with a vector of vectors
 
-    Matrix<T> operator+(const Matrix<T> &rhs) const;
-    Matrix<T> operator*(const Matrix<T> &rhs) const;
+    Matrix<T> operator+(const Matrix<T> &rhs) const; // overload + operator for matrix addition
+    Matrix<T> operator*(const Matrix<T> &rhs) const; // overload * operator for matrix multiplication
     void set_value(std::size_t i, std::size_t j, T n);  // Set a value at row i, column j
     T get_value(std::size_t i, std::size_t j) const;    // Get a value from row i, column j
     int get_size() const;  // Get the size of the matrix (NxN)
@@ -24,8 +24,8 @@ class Matrix {
     void swap_cols(std::size_t c1, std::size_t c2);  // Swap two columns
     void print_matrix() const;  // Print the matrix to the console
 private:
-    std::vector<std::vector<T>> data;
-    std::size_t size;
+    std::vector<std::vector<T>> data; // 2D vector to hold the matrix data
+    std::size_t size; // size of the matrix (N)
 };
 
 #endif // __MATRIX_HPP__
