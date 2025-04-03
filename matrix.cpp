@@ -46,6 +46,9 @@ Matrix<T>::Matrix(std::vector<std::vector<T>> nums) : data(nums), size(nums.size
 // Set a value at row i, column j
 template <typename T>
 void Matrix<T>::set_value(std::size_t i, std::size_t j, T n) {
+    if (i >= size || j >= size) {
+        throw std::out_of_range("Row or column index out of bounds.");
+    }
     data[i][j] = n;
 }
 
@@ -82,16 +85,18 @@ int Matrix<T>::sum_diagonal_minor() const {
 // Swap two rows in the matrix
 template <typename T>
 void Matrix<T>::swap_rows(std::size_t r1, std::size_t r2) {
-    if (r1 >= size || r2 >= size)
+    if (r1 >= size || r2 >= size) {
         throw std::out_of_range("Row indices out of bounds.");
+    }
     std::swap(data[r1], data[r2]);
 }
 
 // Swap two columns in the matrix
 template <typename T>
 void Matrix<T>::swap_cols(std::size_t c1, std::size_t c2) {
-    if (c1 >= size || c2 >= size)
+    if (c1 >= size || c2 >= size) {
         throw std::out_of_range("Column indices out of bounds.");
+    }
     for (std::size_t i = 0; i < size; ++i)
         std::swap(data[i][c1], data[i][c2]);
 }
